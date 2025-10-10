@@ -1,11 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "WebAI",
+  "name": "Script Injector",
   "version": "1.0",
-  "description": "AI Chatbot in any webpage you visit",
+  "description": "Injects a custom script into every webpage.",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "http://*/",
+    "https://*/"
   ],
   "background": {
     "service_worker": "background.js"
