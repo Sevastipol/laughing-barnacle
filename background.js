@@ -1,7 +1,8 @@
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.action.setBadgeText({
-    text: "ON",
-  });
+  // Remove this line to avoid the error
+  // chrome.action.setBadgeText({
+  //   text: "ON",
+  // });
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
