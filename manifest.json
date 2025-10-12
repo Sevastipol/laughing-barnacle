@@ -1,21 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Script Injector",
+  "name": "Toggle Visibility Extension",
   "version": "1.0",
-  "description": "Injects a custom script into every webpage.",
-  "permissions": [
-    "activeTab",
-    "scripting",
-    "http://*/",
-    "https://*/"
-  ],
+  "description": "Toggles the visibility of a specific div using Ctrl + A.",
+  "permissions": ["activeTab"],
   "background": {
     "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ]
+  }
+  "action": {
+    "default_popup": "popup.html",
+  }
 }
