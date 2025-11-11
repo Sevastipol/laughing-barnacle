@@ -1,39 +1,62 @@
 (() => {
   // ------------------------------------------------------------------
-  // 1. Create the container div (only once per frame)
+  // Helper: wait until <body> exists (some sites create it later)
   // ------------------------------------------------------------------
-  if (document.getElementById('deployment-40042b47-04dd-4395-a84f-2aae93e1406d')) {
-    return; // already injected in this frame
-  }
-
-  const div44 = document.createElement('div');
-  let visible = true;
-
-  div44.id = 'deployment-40042b47-04dd-4395-a84f-2aae93e1406d';
-  div44.style.position = 'fixed';
-  div44.style.top = '0';
-  div44.style.left = '0';
-  div44.style.zIndex = '2147483647';
-  div44.style.display = 'block';
-
-  document.body.appendChild(div44);
+  const waitForBody = (callback) => {
+    if (document.body) return callback();
+    const observer = new MutationObserver(() => {
+      if (document.body) {
+        observer.disconnect();
+        callback();
+      }
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+  };
 
   // ------------------------------------------------------------------
-  // 2. Load the remote bundle inside the div
+  // Main injection – runs once per frame
   // ------------------------------------------------------------------
-  const script = document.createElement('script');
-  script.src = 'https://studio.pickaxe.co/api/embed/bundle.js';
-  script.defer = true;
-  div44.appendChild(script);
+  const inject = () => {
+    if (document.getElement0('deployment-40042b47-04dd-4395-a84f-2aae93e1406d')) return;
+
+    const div = document.createElement('div');
+    div.id = 'deployment-40042b47-04dd-4395-a84f-2aae93e1406d';
+    div.style.cssText = `
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      z-index: 2147483647 !important;
+      display: block !important;
+      pointer-events: auto !important;
+    `;
+
+    // Append to body
+    document.body.appendChild(div);
+
+    // Load remote bundle inside the div
+    const script = document.createElement('script');
+    script.src = 'https://studio.pickaxe.co/api/embed/bundle.js';
+    script.defer = true;
+    div.appendChild(script);
+
+    // ------------------------------------------------------------------
+    // Toggle with Ctrl+A
+    // ------------------------------------------------------------------
+    let visible = true;
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey && e.key === 'a') {
+        e.preventDefault();           // block native select-all
+        e.stopPropagation();
+        visible = !visible;
+        div.style.display = visible ? 'block' : 'none';
+      }
+    }, true); // capture phase – works even if page later blocks it
+  };
 
   // ------------------------------------------------------------------
-  // 3. Ctrl+A → toggle visibility
+  // Run when body is ready
   // ------------------------------------------------------------------
-  document.addEventListener('keydown', event => {
-    if (event.ctrlKey && event.key === 'a') {
-      event.preventDefault();               // stop native select-all
-      visible = !visible;
-      div44.style.display = visible ? 'block' : 'none';
-    }
-  });
+  waitForBody(inject);
 })();
