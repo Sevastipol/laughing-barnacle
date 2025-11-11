@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Pickaxe Embed Toggle (Ctrl+A)",
-  "description": "Embeds Pickaxe script in a fixed div, toggled with Ctrl+A.",
+  "name": "Website AI",
+  "description": "AI in any website by using Control + A",
   "version": "1.0",
   "icons": {
     "16": "icon.png",
