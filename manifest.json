@@ -1,14 +1,20 @@
 {
   "manifest_version": 3,
-  "name": "Toggle Visibility Extension",
+  "name": "Pickaxe Embed Toggle (Ctrl+A)",
+  "description": "Embeds Pickaxe script in a fixed div, toggled with Ctrl+A.",
   "version": "1.0",
-  "description": "Toggles the visibility of a specific div using Ctrl + A.",
-  "permissions": ["activeTab"],
-  "background": {
-    "service_worker": "background.js"
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
   },
-  "action": {
-    "default_popup": "popup.html"
-  }
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "permissions": []
 }
-
