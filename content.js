@@ -17,7 +17,7 @@
   // Main injection – runs once per frame
   // ------------------------------------------------------------------
   const inject = () => {
-    if (document.getElement0('deployment-40042b47-04dd-4395-a84f-2aae93e1406d')) return;
+    if (document.getElementByID('deployment-40042b47-04dd-4395-a84f-2aae93e1406d')) return;
 
     const div = document.createElement('div');
     div.id = 'deployment-40042b47-04dd-4395-a84f-2aae93e1406d';
