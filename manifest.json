@@ -1,20 +1,24 @@
 {
   "manifest_version": 3,
   "name": "Website AI",
-  "description": "AI in any website by using Control + A",
-  "version": "1.0",
+  "description": "AI in any website by using Ctrl + A.",
+  "version": "1.1",
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
   },
+
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
       "run_at": "document_end",
-      "all_frames": true
+      "all_frames": true,
+      "world": "MAIN"
     }
   ],
-  "permissions": []
+
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"]
 }
