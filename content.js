@@ -33,17 +33,6 @@
 
     const div = document.createElement('div');
     div.id = 'deployment-40042b47-04dd-4395-a84f-2aae93e1406d';
-    div.style.cssText = `
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-      z-index: 2147483647 !important;
-      display: block !important;
-      pointer-events: auto !important;
-      background: transparent !important;
-    `;
 
     document.body.appendChild(div);
 
