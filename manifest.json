@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Pickaxe AI Overlay",
+  "name": "Website AI",
   "version": "1.0",
-  "description": "Injects Pickaxe AI embed with Ctrl+A toggle",
+  "description": "AI in any website by using Ctrl + A",
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
