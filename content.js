@@ -24,7 +24,7 @@
   // Toggle visibility with Ctrl+A
   document.addEventListener('keydown', function (event) {
     if (event.ctrlKey && event.key === 'a') {
-      event.preventDefault(); // Prevent "Select All" or file open
+      event.preventDefault(); // Prevent "Select All"
       if (bool === false) {
         div44.style.display = 'block';
         bool = true;
@@ -35,10 +35,16 @@
     }
   });
 
-  // Inject the external script
+  // Inject the LOCAL bundle.js
   let script = document.createElement('script');
-  script.src = 'https://studio.pickaxe.co/api/embed/bundle.js';
+  script.src = chrome.runtime.getURL('bundle.js');
   script.defer = true;
+  script.onload = function () {
+    console.log('Pickaxe bundle loaded successfully');
+  };
+  script.onerror = function () {
+    console.error('Failed to load bundle.js');
+  };
   div44.appendChild(script);
 
 })();
