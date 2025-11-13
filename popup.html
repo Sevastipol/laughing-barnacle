@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website AI - Support</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      min-height: 280px;
+      background-color: #10a37f;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 13px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    .donate-btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .donate-btn:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .btc-address {
+      font-family: monospace;
+      font-size: 11px;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 8px;
+      border-radius: 6px;
+      margin: 10px 0;
+      word-break: break-all;
+      position: relative;
+    }
+
+    .copy-btn {
+      margin-top: 6px;
+      font-size: 12px;
+      padding: 6px 12px;
+      background-color: #1a1a1a;
+      color: #10a37f;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .copy-btn:hover {
+      background-color: #333;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 11px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">AI</div>
+  <h1>Website AI</h1>
+  <p>Enjoying AI on any website?<br>Support development!</p>
+
+  <!-- PayPal Donation -->
+  <a href="https://www.paypal.com/checkoutnow?token=3FH20932TY839412F" 
+     target="_blank" 
+     class="donate-btn">
+     Donate with PayPal
+  </a>
+
+  <!-- Bitcoin Donation -->
+  <div>
+    <p style="font-size:12px; margin:12px 0 6px;">Or with Bitcoin (BTC):</p>
+    <div class="btc-address" id="btcAddress">
+      bc1qwj6pazxuqhf95eeat4k3ufdd4e99v4kyrayl57
+    </div>
+    <button class="copy-btn" id="copyBtn">Copy Address</button>
+  </div>
+
+  <div class="footer">
+    Thank you for your support! 🙏
+  </div>
+
+  <script>
+    document.getElementById('copyBtn').addEventListener('click', () => {
+      const addr = document.getElementById('btcAddress').innerText;
+      navigator.clipboard.writeText(addr).then(() => {
+        const btn = document.getElementById('copyBtn');
+        const original = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.style.backgroundColor = '#10a37f';
+        btn.style.color = 'white';
+        setTimeout(() => {
+          btn.innerText = original;
+          btn.style.backgroundColor = '#1a1a1a';
+          btn.style.color = '#10a37f';
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+</html>
