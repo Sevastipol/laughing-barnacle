@@ -82,22 +82,6 @@
       position: relative;
     }
 
-    .copy-btn {
-      margin-top: 6px;
-      font-size: 12px;
-      padding: 6px 12px;
-      background-color: #1a1a1a;
-      color: #10a37f;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .copy-btn:hover {
-      background-color: #333;
-    }
-
     .footer {
       margin-top: 20px;
       font-size: 11px;
@@ -130,22 +114,5 @@
     Thank you for your support! 🙏
   </div>
 
-  <script>
-    document.getElementById('copyBtn').addEventListener('click', () => {
-      const addr = document.getElementById('btcAddress').innerText;
-      navigator.clipboard.writeText(addr).then(() => {
-        const btn = document.getElementById('copyBtn');
-        const original = btn.innerText;
-        btn.innerText = 'Copied!';
-        btn.style.backgroundColor = '#10a37f';
-        btn.style.color = 'white';
-        setTimeout(() => {
-          btn.innerText = original;
-          btn.style.backgroundColor = '#1a1a1a';
-          btn.style.color = '#10a37f';
-        }, 2000);
-      });
-    });
-  </script>
 </body>
 </html>
