@@ -40,7 +40,7 @@
   script.src = chrome.runtime.getURL('bundle.js');
   script.defer = true;
   script.onload = function () {
-    console.log('Pickaxe bundle loaded successfully');
+    console.log('Website AI loaded successfully, Ctrl + A to toggle.');
     setTimeout(() => {
     // Code to run after the delay
     div44.style.display = 'none';
