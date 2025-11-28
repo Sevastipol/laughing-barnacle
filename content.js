@@ -41,6 +41,11 @@
   script.defer = true;
   script.onload = function () {
     console.log('Pickaxe bundle loaded successfully');
+    setTimeout(() => {
+    // Code to run after the delay
+    div44.style.display = 'none';
+    bool = false;
+}, 1000); // The delay is in milliseconds (1000ms = 1 second)
   };
   script.onerror = function () {
     console.error('Failed to load bundle.js');
