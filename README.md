@@ -1,4 +1,4 @@
-This is a chrome extension which I made a while back. By using Ctrl + A, you can toggle the AI sidebar on and off. Works in exam.net !!!!
+This is a chrome extension which I made a while back. By using Ctrl + A, you can toggle the AI sidebar on and off.
 
 
 Get the extension here: https://chromewebstore.google.com/detail/website-ai/ejnepppmidppcmfpibdmbhmkkihcifjc
