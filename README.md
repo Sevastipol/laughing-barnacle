@@ -2,3 +2,4 @@ This is a chrome extension which I made a while back. By using Ctrl + A, you can
 
 
 Get the extension here: https://chromewebstore.google.com/detail/website-ai/ejnepppmidppcmfpibdmbhmkkihcifjc
+(please don't use this extension to cheat)
